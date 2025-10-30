@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'second_screen_data.dart';
 
 class FirstScreenData extends StatelessWidget {
   const FirstScreenData({super.key});
@@ -17,15 +16,15 @@ class FirstScreenData extends StatelessWidget {
             padding: const EdgeInsets.all(20),
           ),
           onPressed: () {
-            Navigator.push(
+            // Use named route and pass a Map as arguments
+            Navigator.pushNamed(
               context,
-              MaterialPageRoute(
-                builder: (context) => const SecondScreenData(
-                  nama: 'Ramiro',
-                  email: 'ibbiramiro@gmail.com',
-                  nim: '112',
-                ),
-              ),
+              '/secondData',
+              arguments: {
+                'nama': 'Ramiro',
+                'email': 'ibbiramiro@gmail.com',
+                'nim': '112',
+              },
             );
           },
           child: const Text(

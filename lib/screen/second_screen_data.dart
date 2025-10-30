@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 
 class SecondScreenData extends StatelessWidget {
-  final String nama;
-  final String email;
-  final String nim;
-
-  const SecondScreenData({
-    super.key,
-    required this.nama,
-    required this.email,
-    required this.nim,
-  });
+  const SecondScreenData({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Read arguments passed via Navigator.pushNamed
+    final args = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+
+    final nama = args?['nama'] as String? ?? 'Unknown';
+    final email = args?['email'] as String? ?? 'Unknown';
+    final nim = args?['nim'] as String? ?? 'Unknown';
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Second Screen Data'),

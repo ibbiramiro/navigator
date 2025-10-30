@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'screen/first_screen.dart';
-//import 'screen/first_screen_data.dart';
+import 'screen/first_screen_data.dart';
+import 'screen/second_screen_data.dart';
 
 void main() {
   runApp(const MainApp());
@@ -11,10 +11,14 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      //home: FirstScreenData(),
-      home: FirstScreen(),
+      // Use named routes so we can pass arguments easily with pushNamed
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const FirstScreenData(),
+        '/secondData': (context) => const SecondScreenData(),
+      },
     );
   }
 }
